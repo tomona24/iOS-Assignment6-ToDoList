@@ -32,37 +32,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoCell" id="pii-7Y-OzC" customClass="ToDoTableViewCell" customModule="Assignment6_Todo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="toDoCell" id="pii-7Y-OzC" customClass="ToDoTableViewCell" customModule="Assignment6_Todo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pii-7Y-OzC" id="WhS-lE-qaV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pii-7Y-OzC" id="WhS-lE-qaV">
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="742" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLS-dt-En2">
-                                            <rect key="frame" x="334" y="4" width="50" height="36.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="✔️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-Ke-4b2">
+                                            <rect key="frame" x="20" y="8" width="28" height="28.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="EI8-lS-XJm"/>
+                                                <constraint firstAttribute="width" constant="28" id="MT6-JP-7Wp"/>
                                             </constraints>
-                                            <connections>
-                                                <segue destination="v6L-HQ-zVa" kind="show" identifier="editTask" id="0h5-rs-twS"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="253" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-z4-wwf">
-                                            <rect key="frame" x="20" y="4" width="306" height="36.5"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-z4-wwf">
+                                            <rect key="frame" x="56" y="4" width="287" height="36.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7gd-z4-wwf" firstAttribute="leading" secondItem="WhS-lE-qaV" secondAttribute="leading" constant="20" id="2wN-Lg-sag"/>
-                                        <constraint firstAttribute="bottom" secondItem="7gd-z4-wwf" secondAttribute="bottom" constant="4" id="55a-9c-Jsh"/>
-                                        <constraint firstAttribute="bottom" secondItem="eLS-dt-En2" secondAttribute="bottom" constant="4" id="Cwl-nP-uGm"/>
-                                        <constraint firstItem="7gd-z4-wwf" firstAttribute="top" secondItem="WhS-lE-qaV" secondAttribute="top" constant="4" id="DzB-dY-g0d"/>
-                                        <constraint firstAttribute="trailing" secondItem="eLS-dt-En2" secondAttribute="trailing" constant="30" id="Yi7-hb-IKA"/>
-                                        <constraint firstItem="eLS-dt-En2" firstAttribute="leading" secondItem="7gd-z4-wwf" secondAttribute="trailing" constant="8" id="bJm-4F-4RU"/>
-                                        <constraint firstItem="eLS-dt-En2" firstAttribute="top" secondItem="WhS-lE-qaV" secondAttribute="top" constant="4" id="s3E-6p-5EK"/>
+                                        <constraint firstItem="iYS-Ke-4b2" firstAttribute="leading" secondItem="WhS-lE-qaV" secondAttribute="leading" constant="20" id="NAq-ly-lbp"/>
+                                        <constraint firstItem="7gd-z4-wwf" firstAttribute="leading" secondItem="iYS-Ke-4b2" secondAttribute="trailing" constant="8" id="RtY-DS-4aj"/>
+                                        <constraint firstItem="7gd-z4-wwf" firstAttribute="top" secondItem="WhS-lE-qaV" secondAttribute="top" constant="4" id="cVR-Pl-8Pc"/>
+                                        <constraint firstAttribute="bottom" secondItem="7gd-z4-wwf" secondAttribute="bottom" constant="4" id="caF-JN-FFo"/>
+                                        <constraint firstItem="iYS-Ke-4b2" firstAttribute="top" secondItem="WhS-lE-qaV" secondAttribute="top" constant="8" id="iAd-OC-Bg3"/>
+                                        <constraint firstAttribute="bottom" secondItem="iYS-Ke-4b2" secondAttribute="bottom" constant="8" id="qsf-Ac-jPv"/>
+                                        <constraint firstAttribute="trailing" secondItem="7gd-z4-wwf" secondAttribute="trailing" constant="8" id="tIf-2y-FtX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -76,16 +76,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDoList" id="WmE-mv-yFt">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="xGb-hb-doU"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="Dx6-GL-jMr">
                                 <connections>
                                     <segue destination="v6L-HQ-zVa" kind="show" identifier="addTask" id="agR-Jo-S2c"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="trash" id="kmj-pe-wML"/>
+                            <barButtonItem systemItem="trash" id="kmj-pe-wML">
+                                <connections>
+                                    <action selector="deleteSelectedRows:" destination="Wf8-qU-TmE" id="ccm-wc-Ybn"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="kmj-pe-wML" id="lQT-wS-7Dl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZt-V2-LGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,7 +172,4 @@
             <point key="canvasLocation" x="2444.9275362318845" y="101.78571428571428"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="0h5-rs-twS"/>
-    </inferredMetricsTieBreakers>
 </document>

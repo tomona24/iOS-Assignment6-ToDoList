@@ -13,7 +13,7 @@ protocol AddToDoTableViewControllerDelegate: class {
     func edit(task: Task)
 }
 
-class AddToDoTableViewController: UITableViewController {
+class AddToDoTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var textField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
@@ -24,34 +24,35 @@ class AddToDoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.delegate = self
+        
         updateSaveButtonState()
     }
     
     private func updateSaveButtonState() {
-        if let newTaskName = textField.text {
-            if isEdit && ((textField.text?.isEmpty) != nil) {
-                saveButton.isEnabled = true
-            } else {
-                if newTaskName == taskName {
-                    saveButton.isEnabled = true
-                }
-            }
-        }
+        let newTaskName = textField.text ?? ""
+        saveButton.isEnabled = (isEdit && !newTaskName.isEmpty) ||
+    (!isEdit && !newTaskName.isEmpty)
     }
     
-    func textFieldShouldReturn (_ tf :UITextField) -> Bool {
-        textField.resignFirstResponder()
-        updateSaveButtonState()
-        return true
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+      updateSaveButtonState()
+      return true
     }
     
     @IBAction func tappedSaveButton(_ sender: UIBarButtonItem) {
-        if isEdit != false {
-            delegate?.add(task: Task(name: textField.text!))
+        let name = textField.text ?? ""
+        let newTask = Task(name: name)
+        if isEdit {
+            delegate?.edit(task: newTask)
         } else {
-            delegate?.edit(task: Task(name: textField.text!))
+            delegate?.add(task: newTask)
         }
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    
     
     
     /*

@@ -9,13 +9,9 @@
 import Foundation
 
 
-//enum Priority: Int  {
-//    case high = 0
-//    case middle = 1
-//    case low = 2
-//}
 struct Task {
     let name: String
+    var done: Bool  = false
 //    var priority: Priority
 //
 //    init(name: String) {
