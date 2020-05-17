@@ -9,34 +9,44 @@
 import UIKit
 
 class ToDoTableViewController: UITableViewController {
-    var tasks: [Task] = [Task()]
+    var secs =  ["high", "middle", "low"]
+    var tasks = [
+        [Task(name: "A"), Task(name: "B"), Task(name: "C")],
+        [Task(name: "A"), Task(name: "B"), Task(name: "C"), Task(name: "D")],
+        [Task(name: "A"), Task(name: "B"), Task(name: "C"), Task(name: "D")]
+    ]
+//    var middle = [Task(name: "A"), Task(name: "B")]
+//    var low =
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(type(of: tasks))
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return tasks.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tasks[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return secs[section]
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as! ToDoTableViewCell
+        let task = tasks[indexPath.section][indexPath.row]
+        cell.TaskTitleLabel.text = task.name
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
