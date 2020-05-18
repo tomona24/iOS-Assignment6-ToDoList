@@ -35,11 +35,11 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="toDoCell" id="pii-7Y-OzC" customClass="ToDoTableViewCell" customModule="Assignment6_Todo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pii-7Y-OzC" id="WhS-lE-qaV">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pii-7Y-OzC" id="WhS-lE-qaV">
                                     <rect key="frame" x="0.0" y="0.0" width="351" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="✔️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-Ke-4b2">
+                                        <label opaque="NO" tag="1" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="✔️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-Ke-4b2">
                                             <rect key="frame" x="20" y="8" width="28" height="28.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="28" id="MT6-JP-7Wp"/>
@@ -91,6 +91,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="kmj-pe-wML" id="lQT-wS-7Dl"/>
+                        <segue destination="v6L-HQ-zVa" kind="show" identifier="editTask" id="kXi-1N-XwF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZt-V2-LGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,4 +173,7 @@
             <point key="canvasLocation" x="2444.9275362318845" y="101.78571428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kXi-1N-XwF"/>
+    </inferredMetricsTieBreakers>
 </document>

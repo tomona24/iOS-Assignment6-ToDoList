@@ -10,59 +10,64 @@ import UIKit
 
 protocol AddToDoTableViewControllerDelegate: class {
     func add(task: Task)
-    func edit(task: Task)
+    func edit(task: Task, indexPath: IndexPath)
 }
 
-class AddToDoTableViewController: UITableViewController, UITextFieldDelegate {
+class AddToDoTableViewController: UITableViewController, UITextFieldDelegate, toDoTableViewControllerDelegate {
+    
+    
     @IBOutlet var textField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
-    private var isEdit = false
-    private var taskName : String?
+    var isEdit = false
+    
+    var editingTask : Task!
+    var editingIndex: IndexPath!
     
     weak var delegate: AddToDoTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
-        
+        updateView()
         updateSaveButtonState()
+    }
+    
+    func updateView() {
+        if isEdit {
+            navigationItem.title = "Edit item"
+            textField.text = editingTask.name
+        } else {
+            navigationItem.title = "Add item"
+        }
     }
     
     private func updateSaveButtonState() {
         let newTaskName = textField.text ?? ""
         saveButton.isEnabled = (isEdit && !newTaskName.isEmpty) ||
-    (!isEdit && !newTaskName.isEmpty)
+            (!isEdit && !newTaskName.isEmpty)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      textField.resignFirstResponder()
-      updateSaveButtonState()
-      return true
+        textField.resignFirstResponder()
+        updateSaveButtonState()
+        return true
     }
     
     @IBAction func tappedSaveButton(_ sender: UIBarButtonItem) {
         let name = textField.text ?? ""
-        let newTask = Task(name: name)
         if isEdit {
-            delegate?.edit(task: newTask)
+            editingTask.name = name
+            delegate?.edit(task: editingTask, indexPath: editingIndex)
         } else {
+            let newTask = Task(name: name)
             delegate?.add(task: newTask)
         }
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    // from ToDoTableViewControllerDelegate
+    func sendEdit(task: Task) {
+        
+    }    
 }

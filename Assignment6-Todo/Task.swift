@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Task {
-    let name: String
+    var name: String
     var done: Bool  = false
 //    var priority: Priority
 //
